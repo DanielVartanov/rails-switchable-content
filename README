@@ -1,7 +1,7 @@
 Switchable content
 ==================
 
-Helper method for views. Provides easy creation of blocks, hideable by checkboxes.
+ActionView helper. Provides easy creation of blocks hideable by checkboxes.
 
 
 Example
@@ -14,7 +14,7 @@ switchable_content do
   text_area :model, :another_field
 end
 
-You'll get a checkbox, which hides and shows two input fields, mentioned above. Additional checkbox value is not added to HTTP request.
+You'll get a checkbox, which hides and shows two input fields mentioned above. Additional checkbox value is not added to HTTP request.
 
 
 Implementation details
@@ -35,6 +35,6 @@ For instance, the sample ruby code above returns the following HTML code:
 <input type="checkbox" onchange="block = document.getElementById('switchable_block_ad50a1a182345ec'); if (this.checked) {block.style.display='block'} else {block.style.display='none'}" />
 
 You can create as many switchable blocks as you need on a single page, therefore a unique key is generated for each block 
-(that "ad50a1a18..." in ids).
+(that "ad50a1a18..." in ids). So, each checkbox hides and shows its own block.
 
 Copyright (c) 2008 Daniel Vartanov, released under the MIT license
