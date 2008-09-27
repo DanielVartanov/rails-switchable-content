@@ -1,6 +1,6 @@
 == Switchable content
 
-Helper function for views. Allows to easly create blocks, which can be hided by checkbox.
+Helper function for views. Provides easy creation of blocks, hideable by checkboxes.
 
 == Example
 
@@ -11,11 +11,11 @@ switchable_content do
   text_area :model, :another_field
 end
 
-And you'll get a checkbox, which hides and shows two inner input fields. Additional checkbox value is not added to HTTP request.
+You'll get a checkbox, which hides and shows two input fields, mentioned above. Additional checkbox value is not added to HTTP request.
 
 == Implementation details
 
-The example ruby code above returns the following HTML code:
+The sample ruby code above returns the following HTML code:
 
 <input id="switchable_block_ad50a1a182345ec_switch" type="checkbox" name="" onchange="toggleSwitchableBlock('ad50a1a182345ec')" />
 
