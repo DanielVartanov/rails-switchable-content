@@ -1,0 +1,29 @@
+== Switchable content
+
+Helper function for views. Allows to easly create blocks, hideable by checkbox.
+
+== Example
+
+Just type:
+
+switchable_content do
+  text_field :model, :field
+  text_area :model, :another_field
+end
+
+And you'll get a checkbox, which hides and shows two inner input fields. Additional checkbox value is not added to HTTP request.
+
+== Implementation details
+
+The example ruby code above retunrs the following HTML code:
+
+<input id="switchable_block_ad50a1a182345ec_switch" type="checkbox" name="" onchange="toggleSwitchableBlock('ad50a1a182345ec')" />
+
+<div id="switchable_block_ad50a1a182345ec">
+  <input id="model_field" name="model[field]" type="text" />
+  <input id="model_another_field" name="model[another_field]" type="text" />
+</div>
+
+You can create as many switchable blocks as you need on a single page, so a unique key is generated for each block (those "ad50a1a..." in ids).
+
+toggleSwitchableBlock(key) is a javascript function, which sets "display:none" or "display:inline" style of surrounding <div>.
