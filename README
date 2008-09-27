@@ -1,7 +1,7 @@
 Switchable content
 ==================
 
-Helper function for views. Provides easy creation of blocks, hideable by checkboxes.
+Helper method for views. Provides easy creation of blocks, hideable by checkboxes.
 
 
 Example
@@ -20,18 +20,21 @@ You'll get a checkbox, which hides and shows two input fields, mentioned above. 
 Implementation details
 ======================
 
-The sample ruby code above returns the following HTML code:
+switchable_content method simply does the following:
 
-<input id="switchable_block_ad50a1a182345ec_switch" type="checkbox" name="" onchange="toggleSwitchableBlock('ad50a1a182345ec')" />
+1. Surrounds HTML code returned by methods called inside the block with a <div> tag.
+2. Adds HTML code for checkbox with 'onclick' javascript handler, wich hides and shows the <div>.
+
+For instance, the sample ruby code above returns the following HTML code:
 
 <div id="switchable_block_ad50a1a182345ec">
   <input id="model_field" name="model[field]" type="text" />
   <input id="model_another_field" name="model[another_field]" type="text" />
 </div>
 
-You can create as many switchable blocks as you need on a single page, so a unique key is generated for each block (those "ad50a1a18..." in ids).
+<input type="checkbox" onchange="block = document.getElementById('switchable_block_ad50a1a182345ec'); if (this.checked) {block.style.display='block'} else {block.style.display='none'}" />
 
-toggleSwitchableBlock(key) is a javascript function, which sets "display:none" or "display:block" style of surrounding <div>.
-
+You can create as many switchable blocks as you need on a single page, therefore a unique key is generated for each block 
+(that "ad50a1a18..." in ids).
 
 Copyright (c) 2008 Daniel Vartanov, released under the MIT license

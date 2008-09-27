@@ -1,0 +1,1 @@
+require 'switchable_content'
