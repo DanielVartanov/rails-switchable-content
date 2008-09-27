@@ -1,8 +1,11 @@
-== Switchable content
+Switchable content
+==================
 
 Helper function for views. Provides easy creation of blocks, hideable by checkboxes.
 
-== Example
+
+Example
+=======
 
 Just type in your view:
 
@@ -13,7 +16,9 @@ end
 
 You'll get a checkbox, which hides and shows two input fields, mentioned above. Additional checkbox value is not added to HTTP request.
 
-== Implementation details
+
+Implementation details
+======================
 
 The sample ruby code above returns the following HTML code:
 
@@ -27,3 +32,6 @@ The sample ruby code above returns the following HTML code:
 You can create as many switchable blocks as you need on a single page, so a unique key is generated for each block (those "ad50a1a18..." in ids).
 
 toggleSwitchableBlock(key) is a javascript function, which sets "display:none" or "display:block" style of surrounding <div>.
+
+
+Copyright (c) 2008 Daniel Vartanov, released under the MIT license
