@@ -26,4 +26,4 @@ The sample ruby code above returns the following HTML code:
 
 You can create as many switchable blocks as you need on a single page, so a unique key is generated for each block (those "ad50a1a18..." in ids).
 
-toggleSwitchableBlock(key) is a javascript function, which sets "display:none" or "display:inline" style of surrounding <div>.
+toggleSwitchableBlock(key) is a javascript function, which sets "display:none" or "display:block" style of surrounding <div>.
