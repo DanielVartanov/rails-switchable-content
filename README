@@ -9,12 +9,14 @@ Example
 
 Just type in your view:
 
-switchable_content do
-  text_field :model, :field
-  text_area :model, :another_field
-end
+<% switchable_content do %>
+  <%= text_field :model, :field %>
+  <%= text_area :model, :another_field %>
+<% end %>
 
 You'll get a checkbox, which hides and shows two input fields mentioned above. Additional checkbox value is not added to HTTP request.
+
+Please, see 'Usage details' below for an important note and a Haml example.
 
 
 Implementation details
@@ -23,9 +25,9 @@ Implementation details
 switchable_content method simply does the following:
 
 1. Surrounds HTML code returned by methods called inside the block with a <div> tag.
-2. Adds HTML code for checkbox with 'onclick' javascript handler, wich hides and shows the <div>.
+2. Adds a checkbox with 'onclick' javascript handler, which hides and shows the <div>.
 
-For instance, the sample ruby code above returns the following HTML code:
+For instance, the sample ERb code above returns the following HTML code:
 
 <div id="switchable_block_ad50a1a182345ec">
   <input id="model_field" name="model[field]" type="text" />
@@ -34,7 +36,28 @@ For instance, the sample ruby code above returns the following HTML code:
 
 <input type="checkbox" onchange="block = document.getElementById('switchable_block_ad50a1a182345ec'); if (this.checked) {block.style.display='block'} else {block.style.display='none'}" />
 
-You can create as many switchable blocks as you need on a single page, therefore a unique key is generated for each block 
-(that "ad50a1a18..." in ids). So, each checkbox hides and shows its own block.
+You can create as many switchable blocks as you need on a single page, therefore a unique key is generated for each block (that "ad50a1a18..." in id). So, each checkbox hides and shows its own block.
+
+
+Installation
+============
+
+One-step installation:
+
+script/plugin install git://github.com/DanielVartanov/rails-switchable-content.git
+
+
+Usage details
+=============
+
+NOTE: line of code with switchable_content method call should start with '<%' ('-' in Haml), but lines of block content, on the contrary, with '<%=' ('=' in Haml). In short words, use switchable_content exactly as form_tag and other similar methods.
+
+For ERb example see above.
+Here is a Haml example:
+
+- switchable_content do
+  = text_field :model, :field
+  = text_area :model, :another_field
+
 
 Copyright (c) 2008 Daniel Vartanov, released under the MIT license
